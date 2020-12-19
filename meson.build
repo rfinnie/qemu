@@ -512,7 +512,7 @@ if have_system and not get_option('curses').disabled()
   curses_compile_args = ['-DNCURSES_WIDECHAR']
   if curses.found()
     if cc.links(curses_test, args: curses_compile_args, dependencies: [curses])
-      curses = declare_dependency(compile_args: curses_compile_args, 
+      curses = declare_dependency(compile_args: curses_compile_args, dependencies: [curses])
     else
       msg = 'curses package not usable'
       curses = not_found
